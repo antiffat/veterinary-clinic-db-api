@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "22omY0mhI0fCAMJTDFIhn2OublAgS0rM/aTzgTPT/Ps=",
+  "Source": "VeterinaryClinicDatabaseApi.Service",
+  "BasePath": "_content/VeterinaryClinicDatabaseApi.Service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

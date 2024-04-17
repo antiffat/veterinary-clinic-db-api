@@ -1,0 +1,9 @@
+use master;
+    
+CREATE TABLE Animal (
+    IdAnimal INT PRIMARY KEY IDENTITY,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(200),
+    Category NVARCHAR(200) NOT NULL,
+    AREA NVARCHAR(200) NOT NULL
+);
