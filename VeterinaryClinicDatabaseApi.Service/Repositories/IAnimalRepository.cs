@@ -6,4 +6,5 @@ public interface IAnimalRepository
 {
     Task<Animal> AddAnimalAsync(Animal animal);
     Task<List<Animal>> GetAllAnimalAsync(string orderBy);
+    Task<Animal> GetAnimalByIdAsync(int idAnimal);
 }
