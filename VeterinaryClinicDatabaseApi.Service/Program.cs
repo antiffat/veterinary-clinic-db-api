@@ -3,7 +3,6 @@ using VeterinaryClinicDatabaseApi.Service.Models;
 using VeterinaryClinicDatabaseApi.Service.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();  // Registering the AnimalRepository
 builder.Services.AddEndpointsApiExplorer();
@@ -26,5 +25,18 @@ app.MapGet("/api/animals", async (IAnimalRepository repo, string orderBy = "Name
     await repo.GetAllAnimalAsync(orderBy))
     .WithName("GetAllAnimals")
     .Produces<List<Animal>>(StatusCodes.Status200OK);
+
+app.MapPost("/api/animals", async (IAnimalRepository repo, Animal animal, HttpContext httpContext) =>
+{
+    try
+    {
+        var addedAnimal = await repo.AddAnimalAsync(animal);
+        return Results.Created($"/api/animals/{addedAnimal.IdAnimal}", addedAnimal);
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem(ex.Message, statusCode: 500);
+    }
+});
 
 app.Run();
