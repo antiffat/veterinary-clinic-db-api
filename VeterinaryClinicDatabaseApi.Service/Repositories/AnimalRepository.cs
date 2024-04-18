@@ -73,4 +73,33 @@ public class AnimalRepository : IAnimalRepository
 
         return animals;
     }
+
+    public async Task<Animal> GetAnimalByIdAsync(int idAnimal)
+    {
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            await connection.OpenAsync();
+            string sql = "SELECT * FROM Animal WHERE IdAnimal = @IdAnimal";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@IdAnimal", idAnimal);
+                using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                {
+                    if (await reader.ReadAsync())
+                    {
+                        return new Animal
+                        {
+                            IdAnimal = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Description = reader.IsDBNull(2) ? null : reader.GetString(2),
+                            Category = reader.GetString(3),
+                            Area = reader.GetString(4)
+                        };
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
 }

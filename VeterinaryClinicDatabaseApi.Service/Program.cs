@@ -39,4 +39,17 @@ app.MapPost("/api/animals", async (IAnimalRepository repo, Animal animal, HttpCo
     }
 });
 
+app.MapGet("/api/animals/{id}", async (IAnimalRepository repo, int id) =>
+{
+    var animal = await repo.GetAnimalByIdAsync(id);
+    if (animal == null)
+    {
+        return Results.NotFound($"Animal with ID {id} is not found");
+    }
+
+    return Results.Ok(animal);
+}).WithName("GetAnimalById")
+.Produces<Animal>(StatusCodes.Status200OK)
+.Produces(StatusCodes.Status404NotFound);
+
 app.Run();
