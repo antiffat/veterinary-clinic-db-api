@@ -52,4 +52,34 @@ app.MapGet("/api/animals/{id}", async (IAnimalRepository repo, int id) =>
 .Produces<Animal>(StatusCodes.Status200OK)
 .Produces(StatusCodes.Status404NotFound);
 
+app.MapPut("/api/animals/{id}", async (IAnimalRepository repo, Animal animal, int id, HttpContext httpContext) =>
+    {
+        if (animal.IdAnimal != id)
+        {
+            return Results.BadRequest("ID mismatch between URL and body.");
+        }
+
+        var existingAnimal = await repo.GetAnimalByIdAsync(id);
+        if (existingAnimal == null)
+        {
+            return Results.NotFound($"Animal with ID {id} is not found");
+        }
+        else
+        {
+            bool updated = await repo.UpdateAnimalAsync(animal);
+            if (updated)
+            {
+                return Results.NoContent();
+            }
+            else
+            {
+                return Results.BadRequest("Update failed, check the provided data.");
+            }
+        }
+    })
+    .WithName("UpdateAnimal")
+    .Produces(StatusCodes.Status204NoContent)
+    .Produces(StatusCodes.Status404NotFound)
+    .Produces(StatusCodes.Status400BadRequest);
+
 app.Run();

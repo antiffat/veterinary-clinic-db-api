@@ -102,4 +102,28 @@ public class AnimalRepository : IAnimalRepository
 
         return null;
     }
+
+    public async Task<bool> UpdateAnimalAsync(Animal animal)
+    {
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string sql = @"UPDATE Animal 
+                       SET Name = @Name, Description = @Description, 
+                           Category = @Category, Area = @Area 
+                       WHERE IdAnimal = @IdAnimal";
+            
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@IdAnimal", animal.IdAnimal);
+                command.Parameters.AddWithValue("@Name", animal.Name);
+                command.Parameters.AddWithValue("@Description", animal.Description ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@Category", animal.Category);
+                command.Parameters.AddWithValue("@Area", animal.Area);
+
+                await connection.OpenAsync();
+                int affectedRows = await command.ExecuteNonQueryAsync();
+                return affectedRows > 0;
+            }
+        }
+    }
 }
