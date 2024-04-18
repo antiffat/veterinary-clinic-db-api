@@ -31,3 +31,10 @@
 /Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/obj/Debug/net8.0/VeterinaryClinicDatabaseApi.Service.pdb
 /Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/obj/Debug/net8.0/VeterinaryClinicDatabaseApi.Service.genruntimeconfig.cache
 /Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/obj/Debug/net8.0/ref/VeterinaryClinicDatabaseApi.Service.dll
+/Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/bin/Debug/net8.0/System.Data.SqlClient.dll
+/Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/bin/Debug/net8.0/runtimes/win-arm64/native/sni.dll
+/Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/bin/Debug/net8.0/runtimes/win-x64/native/sni.dll
+/Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/bin/Debug/net8.0/runtimes/win-x86/native/sni.dll
+/Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/bin/Debug/net8.0/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/bin/Debug/net8.0/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/Users/antiffat/semester_4/ABPD/VeterinaryClinicDatabaseApi/VeterinaryClinicDatabaseApi.Service/obj/Debug/net8.0/VeterinaryClinicDatabaseApi.Service.sourcelink.json
