@@ -3,8 +3,8 @@ using VeterinaryClinicDatabaseApi.Service.Models;
 using VeterinaryClinicDatabaseApi.Service.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
-// Add services to the container.
-builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();  // Registering the AnimalRepository
+
+builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {

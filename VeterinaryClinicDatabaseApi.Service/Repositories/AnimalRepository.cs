@@ -47,7 +47,9 @@ public class AnimalRepository : IAnimalRepository
             orderBy = "Name";
         }
         
-        string sql = $"SELECT IdAnimal, Name, Description, Category, Area FROM Animal ORDER BY {orderBy}";        
+        string sql = $"SELECT IdAnimal, Name, Description, Category, Area " +
+                     $"FROM Animal " +
+                     $"ORDER BY {orderBy}";    
         
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
@@ -107,10 +109,7 @@ public class AnimalRepository : IAnimalRepository
     {
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string sql = @"UPDATE Animal 
-                       SET Name = @Name, Description = @Description, 
-                           Category = @Category, Area = @Area 
-                       WHERE IdAnimal = @IdAnimal";
+            string sql = @"UPDATE Animal SET Name = @Name, Description = @Description, Category = @Category, Area = @Area WHERE IdAnimal = @IdAnimal";
             
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
