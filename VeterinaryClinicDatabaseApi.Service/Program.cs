@@ -62,14 +62,15 @@ app.MapPut("/api/animals/{id}", async (IAnimalRepository repo, Animal animal, in
         var existingAnimal = await repo.GetAnimalByIdAsync(id);
         if (existingAnimal == null)
         {
-            return Results.NotFound($"Animal with ID {id} is not found");
+            var newAnimal = await repo.AddAnimalAsync(animal); // this was my mistake (line did not exist)
+            return Results.Created($"/api/animals/{{newAnimal.IdAnimal}}", newAnimal); // now it will return 201
         }
         else
         {
             bool updated = await repo.UpdateAnimalAsync(animal);
             if (updated)
             {
-                return Results.NoContent();
+                return Results.NoContent(); // it will return 204 
             }
             else
             {

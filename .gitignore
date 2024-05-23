@@ -35,3 +35,5 @@ obj/
 
 # Log Files
 *.log
+
+appsettings.json
