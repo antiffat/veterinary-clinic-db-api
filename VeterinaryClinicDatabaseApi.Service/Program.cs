@@ -3,12 +3,8 @@ using Microsoft.OpenApi.Models;
 using VeterinaryClinicDatabaseApi.Service.Helpers;
 using VeterinaryClinicDatabaseApi.Service.Models;
 using VeterinaryClinicDatabaseApi.Service.Repositories;
-using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Log the environment variable to ensure it's set correctly
-Console.WriteLine("DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: " + Environment.GetEnvironmentVariable("DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"));
 
 builder.Services.AddDbContext<VeterinaryClinicContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
