@@ -27,7 +27,7 @@ public class AnimalRepository : IAnimalRepository
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.Parameters.AddWithValue("@Name", animal.Name);
-                command.Parameters.AddWithValue("@Description", animal.Description);            
+                command.Parameters.AddWithValue("@Description", (object)animal.Description ?? DBNull.Value); // Description must be nullable.            
                 command.Parameters.AddWithValue("@Category", animal.Category);
                 command.Parameters.AddWithValue("@Area", animal.Area);
 
@@ -115,7 +115,7 @@ public class AnimalRepository : IAnimalRepository
             {
                 command.Parameters.AddWithValue("@IdAnimal", animal.IdAnimal);
                 command.Parameters.AddWithValue("@Name", animal.Name);
-                command.Parameters.AddWithValue("@Description", animal.Description ?? (object)DBNull.Value);
+                command.Parameters.AddWithValue("@Description", (object)animal.Description ?? DBNull.Value); // Description must be nullable.
                 command.Parameters.AddWithValue("@Category", animal.Category);
                 command.Parameters.AddWithValue("@Area", animal.Area);
 

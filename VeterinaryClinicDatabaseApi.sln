@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeterinaryClinicDatabaseApi.Service", "VeterinaryClinicDatabaseApi.Service\VeterinaryClinicDatabaseApi.Service.csproj", "{CACE3713-98CB-4DB0-85C8-7A4452AAC56A}"
 EndProject
